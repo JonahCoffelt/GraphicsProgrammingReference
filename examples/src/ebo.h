@@ -1,19 +1,19 @@
-#ifndef VBO_H
-#define VBO_H
+#ifndef EBO_H
+#define EBO_H
 
 #include "includes.h"
 
-class VBO {
+class EBO {
     private:
         unsigned int ID;
         unsigned int size;
 
     public:
-        VBO(const void* data, unsigned int size, unsigned int drawType=GL_STATIC_DRAW);
+        EBO(const void* data, unsigned int size, unsigned int drawType=GL_STATIC_DRAW);
         template<typename T>
-        VBO(const std::vector<T>& data, unsigned int drawType=GL_STATIC_DRAW);
+        EBO(const std::vector<T>& data, unsigned int drawType=GL_STATIC_DRAW);
         
-        ~VBO(); 
+        ~EBO(); 
 
         void bind() ;
         void unbind();
