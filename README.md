@@ -1,5 +1,5 @@
 # Graphics Programming Reference
-A collection of notes for various graphics programming techniques and paradigms. This is not intended to be a guide for graphics programming or OpenGL beginners, but it will cover theory and implementation of beginner to advanced techniques. Much of the information from these notes comes directly from learnopengl.com
+A collection of notes and scripts for various graphics programming techniques and paradigms. This is not intended to be a guide for graphics programming beginners, but it will cover theory and implementation of beginner to advanced techniques.
 
 
 ## Contents
