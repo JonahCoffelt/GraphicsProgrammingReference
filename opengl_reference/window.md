@@ -3,6 +3,8 @@ The first step to starting an OpenGL project is creating a window. There are man
 
 
 ## Implementation
+For the full code, see the [boilerplate](../examples/01_boilerplate.cpp) example
+
 To start, you need to set initalize GLFW and create a window for OpenGL. 
 
 ```c++
@@ -132,7 +134,3 @@ if (sessionType && std::string(sessionType) == "wayland") {
     glfwInitHint(GLFW_PLATFORM, GLFW_PLATFORM_X11);
 }
 ```
-
-## Full Code
-
-For the full code, see the [boilerplate](../examples/boilerplate.cpp) example

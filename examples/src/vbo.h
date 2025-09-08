@@ -9,10 +9,20 @@ class VBO {
         unsigned int size;
 
     public:
-        VBO(const void* data, unsigned int size, bool dynamic=false);
+        VBO(const void* data, unsigned int size, unsigned int drawType=GL_STATIC_DRAW);
         template<typename T>
-        VBO(const std::vector<T>& data, unsigned int bufferType, bool dynamic=false) : Buffer(data.data(), data.size() * sizeof(T), bufferType=GL_ARRAY_BUFFER, dynamic=false) {}
+        VBO(const std::vector<T>& data, unsigned int drawType=GL_STATIC_DRAW) : Buffer(data.data(), data.size() * sizeof(T), bufferType=GL_ARRAY_BUFFER, dynamic=false) {}
+        
         ~VBO();
+
+        void bind();
+        void unbind();
+        unsigned int getSize();
+
+        void write(const void* data, unsigned int size, unsigned int offset=0);
+        template<typename T>
+        void write(const std::vector<T>& data, unsigned int offset=0);
+
 };
 
 #endif

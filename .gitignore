@@ -3,3 +3,5 @@ examples/build/*
 
 # exception to the rule
 !examples/build/.gitkeep 
+
+.vscode/
