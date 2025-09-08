@@ -98,6 +98,9 @@ while(!glfwWindowShouldClose(window)) {
     glfwSwapBuffers(window);
     glfwPollEvents();    
 }
+
+// Make sure to end GLFW once you are done
+glfwTerminate();
 ```
 
 ## Common Additional Window Features

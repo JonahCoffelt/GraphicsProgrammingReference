@@ -1,3 +1,12 @@
+/**
+ * @file 01_boilerplate.cpp
+ * @author Jonah Coffelt
+ * @brief Minimal example for creating an OpenGL window with GLFW
+ * @version 0.1
+ * @date 2025-09-08
+ * 
+ */
+
 #include "src/includes.h"
 
 void framebuffer_resize_callback(GLFWwindow* window, int width, int height) {
@@ -69,4 +78,7 @@ int main() {
         glfwSwapBuffers(window);
         glfwPollEvents();    
     }
+
+    // End GLFW
+    glfwTerminate();
 }
