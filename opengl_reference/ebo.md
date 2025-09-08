@@ -7,6 +7,8 @@ Using an EBO allows us to avoid duplicating data in a VBO when a vertex is used 
 
 # Implementation
 
+Full implementation for ebo class can be found [here](../examples/src/ebo.cpp)
+
 ```c++
 // Assume an array of indices
 unsigned int indices[] = {
@@ -30,4 +32,4 @@ glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
 glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 ```
 
-Explination may be found in the [VBO](vbo.md) article.
+Explination and further reading may be found in the [VBO](vbo.md) article.
