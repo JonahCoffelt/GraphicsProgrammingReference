@@ -21,13 +21,13 @@ file(GLOB_RECURSE ENGINE_SRC
     ${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp
 )
 list(REMOVE_ITEM ENGINE_SRC 
-    ${CMAKE_CURRENT_SOURCE_DIR}/boilerplate_example.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/boilerplate.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/exmaple.cpp
 )
 
 # --- Executable: render (uses main.cpp) ---
 add_executable(render 
-    boilerplate_example.cpp
+    boilerplate.cpp
     ${ENGINE_SRC}
 )
 target_include_directories(render PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
@@ -35,7 +35,7 @@ target_link_libraries(render glad glfw glm assimp stb)
 
 # --- Executable: example (uses example.cpp) ---
 add_executable(example 
-    boilerplate_example.cpp
+    boilerplate.cpp
     ${ENGINE_SRC}
 )
 target_include_directories(example PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
