@@ -21,25 +21,21 @@ file(GLOB_RECURSE ENGINE_SRC
     ${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp
 )
 list(REMOVE_ITEM ENGINE_SRC 
-    ${CMAKE_CURRENT_SOURCE_DIR}/boilerplate.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/01_boilerplate.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/exmaple.cpp
 )
 
-# --- Executable: render (uses main.cpp) ---
-add_executable(render 
-    boilerplate.cpp
-    ${ENGINE_SRC}
-)
+# --- Make Example Executables ---
+# Boilerplate Example
+add_executable(boilerplate 01_boilerplate.cpp ${ENGINE_SRC})
 target_include_directories(render PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
 target_link_libraries(render glad glfw glm assimp stb)
 
-# --- Executable: example (uses example.cpp) ---
-add_executable(example 
-    boilerplate.cpp
-    ${ENGINE_SRC}
-)
+# Boilerplate Example
+add_executable(boilerplate 01_boilerplate.cpp ${ENGINE_SRC})
 target_include_directories(example PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
 target_link_libraries(example glad glfw glm assimp stb)
+
 
 # --- Copy shaders ---
 set(SHADERS_SRC_DIR "${CMAKE_CURRENT_SOURCE_DIR}/shaders")
