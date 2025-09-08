@@ -3,6 +3,8 @@
 A shader is a program that runs on the GPU. Shaders are mostly used for rendering, but can also be used for arbitrary computations.
 This article will not cover how to write GLSL, it is focused on how to implement existing shaders with OpenGL.
 
+Full implementation of a shader class can be found at [shader.cpp](../examples/src/shader.cpp)
+
 ## Compiling a Shader
 
 Shaders are compiled from a C-string of source code. 
@@ -97,4 +99,47 @@ Finally, release the vertex and fragment shaders to avoid memory leaks:
 ```c++
 glDeleteShader(vertex);
 glDeleteShader(fragment);
+```
+
+## Loading Shader From File
+
+Oftentimes, it is preferable to load shaders from files rather than put the source code as a string in our c++ file.
+This is not an OpenGL topic, so I will simply provide the code and leave it to the reader to get a deeper explination if desired.
+
+```c++
+const char* vertexPath = "shader.vert";
+const char* fragmentPath = "shader.frag";
+
+std::string vertexCode;
+std::string fragmentCode;
+std::ifstream vertexFile;
+std::ifstream fragmentFile;
+
+vertexFile.exceptions(std::ifstream::failbit | std::ifstream::badbit);
+fragmentFile.exceptions(std::ifstream::failbit | std::ifstream::badbit);
+
+try {
+    // Open files
+    vertexFile.open(vertexPath);
+    fragmentFile.open(fragmentPath);
+
+    // Read files buffers to streams
+    std::stringstream vertexStream, fragmentStream;
+    vertexStream << vertexFile.rdbuf();
+    fragmentStream << fragmentFile.rdbuf();
+
+    // Save shader code as string
+    vertexCode = vertexStream.str();
+    fragmentCode = fragmentStream.str();
+
+    // Close files
+    vertexFile.close();
+    fragmentFile.close();
+}
+catch (std::ifstream::failure e) {
+    std::cout << "ERROR::SHADER::FILE_NOT_SUCCESFULLY_READ" << std::endl;
+}
+
+const char* vertexShaderCode = vertexCode.c_str();
+const char* fragmentShaderCode = fragmentCode.c_str();
 ```
