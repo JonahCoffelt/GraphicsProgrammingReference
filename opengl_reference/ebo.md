@@ -33,3 +33,12 @@ glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 ```
 
 Explination and further reading may be found in the [VBO](vbo.md) article.
+
+
+## Releasing a Buffer
+
+Once you are done using a buffer, make sure to release it.
+
+```c++
+glDeleteBuffers(1, &VBO);
+```

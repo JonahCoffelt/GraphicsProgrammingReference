@@ -1,9 +1,11 @@
 # OpenGL Window
 The first step to starting an OpenGL project is creating a window. There are many ways to do this; I use GLFW.
+For full boilerplate code, see the [boilerplate](../examples/01_boilerplate.cpp) example
 
 
 ## Implementation
-For the full code, see the [boilerplate](../examples/01_boilerplate.cpp) example
+
+Full implementation for window class can be found [here](../examples/src/window.cpp)
 
 To start, you need to set initalize GLFW and create a window for OpenGL. 
 
@@ -68,6 +70,7 @@ Then set the callback function for the window like so:
 glfwSetFramebufferSizeCallback(window, framebuffer_resize_callback);
 ```
 
+
 ## Clearing
 
 To clear, first set the clear color, then call `glClear`
@@ -103,6 +106,7 @@ while(!glfwWindowShouldClose(window)) {
 glfwTerminate();
 ```
 
+
 ## Common Additional Window Features
 
 ### Unlimited FPS
@@ -112,8 +116,8 @@ GLFW will limit the framerate by defult. If you want to have unlimited FPS, simp
 glfwSwapInterval(0);
 ```
 
-### OpenGL 
-OpenGL has some build in functionality for common default behaviors you might want to enable.
+### OpenGL
+OpenGL has some built in functionality for common default behaviors you might want to enable.
 Here are some that I commonly use:
 
 ```c++

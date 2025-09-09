@@ -101,6 +101,16 @@ glDeleteShader(vertex);
 glDeleteShader(fragment);
 ```
 
+
+## Releasing a Shader Program
+
+Once you are finished with a shader program, make sure to release the data.
+
+```c++
+glDeleteProgram(program);
+```
+
+
 ## Loading Shader From File
 
 Oftentimes, it is preferable to load shaders from files rather than put the source code as a string in our c++ file.
