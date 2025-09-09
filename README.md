@@ -22,10 +22,12 @@ High-level overviews of different methods/paradigms for therendering pipeline.
 Small scripts that show how to implement a specific technique.
 Boilerplate example is standalone, but most rely on abstractions found in `examples/src`. 
 - [OpenGL Boilerplate](./examples/01_boilerplate.cpp)
+- [Abstracted Boilerplate](./examples/02_abstracted_boilerplate.cpp)
 
 ### Class Implementations
 Collection of fully implemented classes to use for an abstracted OpenGL workflow. 
 These are used in many of the examples. 
+- [Window Class](./examples/src/window.cpp)
 - [VBO Class](./examples/src/vbo.cpp)
 - [EBO Class](./examples/src/ebo.cpp)
 - [Shader class](./examples/src/shader.cpp)
