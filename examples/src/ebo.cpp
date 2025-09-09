@@ -12,13 +12,10 @@
 EBO::EBO(const void* data, unsigned int size, unsigned int drawType): size(size) {
     // Create one buffer, and update EBO with the buffer ID
     glGenBuffers(1, &ID);
-
     // Bind the ebo to start working on it
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ID);
-
     // Now, we can add our vertex data to the EBO
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, size, data, GL_STATIC_DRAW);
-
     // Unbind the buffer for safety
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 }
