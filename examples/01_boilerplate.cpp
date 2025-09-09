@@ -55,15 +55,6 @@ int main() {
 
     glfwSetFramebufferSizeCallback(window, framebuffer_resize_callback);
 
-    // Unlimited FPS
-    glfwSwapInterval(0);
-    // Draws closer objects in front of futher objects
-    glEnable(GL_DEPTH_TEST);  
-    // Does not draw faces that are not facing the camera
-    glEnable(GL_CULL_FACE);
-    // Antialiasing 
-    glEnable(GL_MULTISAMPLE);
-
     while(!glfwWindowShouldClose(window)) {
         // Handle Input
         if(glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS) {

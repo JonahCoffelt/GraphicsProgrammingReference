@@ -10,7 +10,7 @@ In essence, a VBO is just an array of vertices.
 Full implementation for vbo class can be found [here](../examples/src/vbo.cpp)
 
 In OpenGL, buffers are created with an ID. 
-This id should be maintained to bind, access, and modify the buffer later on.
+This ID should be maintained to bind, access, and modify the buffer later on.
 Note that to work with a buffer, it must be bound.
 This is because in OpenGL all buffer operations are done on the currently bound buffer. 
 
@@ -96,4 +96,12 @@ glBindBuffer(GL_ARRAY_BUFFER, VBO);
 glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
 // Unbind the buffer for safety
 glBindBuffer(GL_ARRAY_BUFFER, 0);
+```
+
+## Releasing a Buffer
+
+Once you are done using a buffer, make sure to release it.
+
+```c++
+glDeleteBuffers(1, &VBO);
 ```
