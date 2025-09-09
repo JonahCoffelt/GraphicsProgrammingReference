@@ -1,6 +1,64 @@
 #include "shader.h"
 
 /**
+ * @brief Get the component count of an OpenGL type. Not an exhaustive function, only valid for BOOL, INT, and FLOAT type. 
+ * 
+ * @param type GLenum of the type
+ * @return GLint 
+ */
+inline GLint getGLTypeComponentCount(GLenum type) {
+    switch (type) {
+        case GL_BOOL:
+        case GL_INT:
+        case GL_UNSIGNED_INT:
+        case GL_FLOAT: return 1;
+
+        case GL_BOOL_VEC2:
+        case GL_INT_VEC2:
+        case GL_FLOAT_VEC2: return 2;
+
+        case GL_BOOL_VEC3:
+        case GL_INT_VEC3:
+        case GL_FLOAT_VEC3: return 3;
+
+        case GL_BOOL_VEC4:
+        case GL_INT_VEC4:
+        case GL_FLOAT_VEC4: return 4;
+    }
+
+    return 0;
+}
+
+/**
+ * @brief Get the size in bytes of an OpenGL type. Not an exhaustive function, only valid for BOOL, INT, and FLOAT type. 
+ * 
+ * @param type GLenum of the type
+ * @return GLsizei 
+ */
+inline GLsizei getGLTypeSize(GLenum type) {
+    switch (type) {
+        case GL_BOOL:
+        case GL_INT:
+        case GL_UNSIGNED_INT:
+        case GL_FLOAT: return 4;
+
+        case GL_BOOL_VEC2:
+        case GL_INT_VEC2:
+        case GL_FLOAT_VEC2: return 8;
+
+        case GL_BOOL_VEC3:
+        case GL_INT_VEC3:
+        case GL_FLOAT_VEC3: return 12;
+
+        case GL_BOOL_VEC4:
+        case GL_INT_VEC4:
+        case GL_FLOAT_VEC4: return 16;
+    }
+
+    return 0;
+}
+
+/**
  * @brief Read a file as a c-string
  * 
  * @param path The absolute or relative path of the file to read
@@ -103,6 +161,31 @@ Shader::Shader(const char* vertexPath, const char* fragmentPath) {
     // Release hanging shaders
     glDeleteShader(vertex);
     glDeleteShader(fragment);
+
+    // Get all of the active attributes in the shader for VAO use
+    loadAttributes();
+}
+
+/**
+ * @brief Get all of the active attributes in the shader and saves them on the shader
+ * 
+ */
+void Shader::loadAttributes() {
+    GLint nAttributes;
+    GLint size; 
+    GLenum type; 
+    const GLsizei bufSize = 256;
+    GLchar name[bufSize];
+    GLsizei length; 
+
+    glGetProgramiv(ID, GL_ACTIVE_ATTRIBUTES, &nAttributes);
+
+    stride = 0;
+    for (GLint i = 0; i < nAttributes; i++) {
+        glGetActiveAttrib(ID, (GLuint)i, bufSize, &length, &size, &type, name);
+        attributes.push_back({i, getGLTypeComponentCount(type), type, stride});
+        stride += getGLTypeSize(type);
+    }
 }
 
 /**

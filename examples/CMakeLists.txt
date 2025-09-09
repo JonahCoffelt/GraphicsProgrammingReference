@@ -45,6 +45,11 @@ add_executable(04_quad 04_quad.cpp ${ENGINE_SRC})
 target_include_directories(04_quad PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
 target_link_libraries(04_quad glad glfw glm assimp stb)
 
+# Color Example
+add_executable(05_color_attrib 05_color_attrib.cpp ${ENGINE_SRC})
+target_include_directories(05_color_attrib PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
+target_link_libraries(05_color_attrib glad glfw glm assimp stb)
+
 # --- Copy shaders ---
 set(SHADERS_SRC_DIR "${CMAKE_CURRENT_SOURCE_DIR}/shaders")
 set(SHADERS_DST_DIR "${CMAKE_CURRENT_BINARY_DIR}/shaders")

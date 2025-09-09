@@ -17,7 +17,9 @@ VAO::VAO(Shader* shader, VBO* vertices, EBO* indices): shader(shader), vbo(verti
     if (ebo) { ebo->bind(); } 
 
     // Bind attributes
-    bindAttribute(0, 3, GL_FLOAT, 3 * sizeof(float), 0);
+    for (auto attrib : shader->getAttributes()) {
+        bindAttribute(attrib.location, attrib.count, attrib.dataType, shader->getStride(), attrib.offset);
+    }
 }
 
 /**

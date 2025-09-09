@@ -1,7 +1,7 @@
 /**
  * @file 04_quad.cpp
- * @author your name (you@domain.com)
- * @brief 
+ * @author Jonah Coffelt
+ * @brief Shows how to use a VBO and and EBO to render a quad
  * @version 0.1
  * @date 2025-09-09
  * 
@@ -29,7 +29,7 @@ int main() {
         1, 2, 3
     }; 
     
-    Shader* shader = new Shader("shaders/03_triangle.vert", "shaders/03_triangle.frag");
+    Shader* shader = new Shader("shaders/04_quad.vert", "shaders/04_quad.frag");
     VBO* vbo = new VBO(vertices);
     EBO* ebo = new EBO(indices);
     VAO* vao = new VAO(shader, vbo, ebo);
