@@ -10,14 +10,11 @@
  *                 May also be GL_DYNAMIC_DRAW or GL_STREAM_DRAW.
  */
 VBO::VBO(const void* data, unsigned int size, unsigned int drawType): size(size) {
-    // ID to the buffer
-    unsigned int VBO;
-
     // Create one buffer, and update VBO with the buffer ID
-    glGenBuffers(1, &VBO);
+    glGenBuffers(1, &ID);
 
     // Bind the vbo to start working on it
-    glBindBuffer(GL_ARRAY_BUFFER, VBO);
+    glBindBuffer(GL_ARRAY_BUFFER, ID);
 
     // Now, we can add our vertex data to the VBO
     glBufferData(GL_ARRAY_BUFFER, size, data, GL_STATIC_DRAW);
@@ -25,19 +22,6 @@ VBO::VBO(const void* data, unsigned int size, unsigned int drawType): size(size)
     // Unbind the buffer for safety
     glBindBuffer(GL_ARRAY_BUFFER, 0);
 }
-
-/**
- * @brief Construct a new VBO object from a vector of data. 
- * 
- * @param data A reference to a vector of data to populate the VBO
- * @param drawType Specifies how OpenGL should store/write to buffer data.
- *                 GL_STATIC_DRAW by defult. 
- *                 May also be GL_DYNAMIC_DRAW or GL_STREAM_DRAW.
- */
-template<typename T>
-VBO::VBO(const std::vector<T>& data, unsigned int drawType):
-    VBO(VBO::VBO(data.data(), data.size() * sizeof(T), drawType))
-{}
 
 /**
  * @brief Destroy the VBO::VBO object

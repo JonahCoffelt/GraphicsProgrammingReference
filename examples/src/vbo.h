@@ -11,8 +11,8 @@ class VBO {
     public:
         VBO(const void* data, unsigned int size, unsigned int drawType=GL_STATIC_DRAW);
         template<typename T>
-        VBO(const std::vector<T>& data, unsigned int drawType=GL_STATIC_DRAW);
-        
+        VBO(const std::vector<T>& data, unsigned int drawType=GL_STATIC_DRAW) : VBO(data.data(), data.size() * sizeof(T), drawType) {}
+            
         ~VBO(); 
 
         void bind() ;

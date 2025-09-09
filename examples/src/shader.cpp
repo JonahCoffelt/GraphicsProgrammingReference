@@ -6,7 +6,7 @@
  * @param path The absolute or relative path of the file to read
  * @return const char* 
  */
-const char* loadFile(const char* path) {
+std::string loadFile(const char* path) {
     // Set out string and stream
     std::string content;
     std::ifstream file;
@@ -24,7 +24,7 @@ const char* loadFile(const char* path) {
         std::cout << "ERROR::SHADER::FILE_NOT_SUCCESFULLY_READ" << std::endl;
     }
 
-    return content.c_str();
+    return content;
 }
 
 /**
@@ -34,13 +34,14 @@ const char* loadFile(const char* path) {
  * @param shaderType The type of shader. May be GL_VERTEX_SHADER or GL_FRAGMENT_SHADER
  * @return unsigned int of the shader ID
  */
-unsigned int loadShader(const char* source, unsigned int shaderType) {
+unsigned int loadShader(std::string source, unsigned int shaderType) {
     int success;
     char infoLog[512];
 
     // Load Shader
     unsigned int shader = glCreateShader(shaderType);
-    glShaderSource(shader, 1, &source, NULL);
+    const char* sourceCode = source.c_str();
+    glShaderSource(shader, 1, &sourceCode, NULL);
     glCompileShader(shader);
 
     // Check for compilation errors
@@ -89,8 +90,8 @@ unsigned int loadProgram(unsigned int vertex, unsigned int fragment) {
  */
 Shader::Shader(const char* vertexPath, const char* fragmentPath) {
     //  Load the source code
-    const char* vertexShaderSource   = loadFile(vertexPath);
-    const char* fragmentShaderSource = loadFile(fragmentPath);
+    std::string vertexShaderSource   = loadFile(vertexPath);
+    std::string fragmentShaderSource = loadFile(fragmentPath);
 
     // Compile shaders from source
     unsigned int vertex   = loadShader(vertexShaderSource,   GL_VERTEX_SHADER);
