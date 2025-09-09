@@ -15,7 +15,9 @@ int main() {
     Window* window = new Window(800, 800, "Example 2");
 
     while (window->isRunning()) {
-        window->clear(0.5, 0.0, 0.0, 1.0);
+        window->clear(0.2, 0.3, 0.3, 1.0);
         window->render();
     }
+
+    delete window;
 }

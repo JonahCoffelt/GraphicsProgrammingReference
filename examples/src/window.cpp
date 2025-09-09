@@ -89,7 +89,7 @@ Window::Window(int width, int height, const char* title) {
     if (!confirmGLAD()) { return; }
 
     // Set the resize callback
-    windowResize(window, width, height);
+    glViewport(0, 0, width, height);
     glfwSetFramebufferSizeCallback(window, windowResize);
 }
 

@@ -26,15 +26,24 @@ list(REMOVE_ITEM ENGINE_SRC
 
 # --- Make Example Executables ---
 # Boilerplate Example
-add_executable(boilerplate 01_boilerplate.cpp ${ENGINE_SRC})
-target_include_directories(boilerplate PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
-target_link_libraries(boilerplate glad glfw glm assimp stb)
+add_executable(01_boilerplate 01_boilerplate.cpp ${ENGINE_SRC})
+target_include_directories(01_boilerplate PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
+target_link_libraries(01_boilerplate glad glfw glm assimp stb)
 
-# Boilerplate Example
-add_executable(abstracted_boilerplate 02_abstracted_boilerplate.cpp ${ENGINE_SRC})
-target_include_directories(abstracted_boilerplate PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
-target_link_libraries(abstracted_boilerplate glad glfw glm assimp stb)
+# Abstract Boilerplate Example
+add_executable(02_abstracted_boilerplate 02_abstracted_boilerplate.cpp ${ENGINE_SRC})
+target_include_directories(02_abstracted_boilerplate PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
+target_link_libraries(02_abstracted_boilerplate glad glfw glm assimp stb)
 
+# Triangle Example
+add_executable(03_triangle 03_triangle.cpp ${ENGINE_SRC})
+target_include_directories(03_triangle PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
+target_link_libraries(03_triangle glad glfw glm assimp stb)
+
+# Quad Example
+add_executable(04_quad 04_quad.cpp ${ENGINE_SRC})
+target_include_directories(04_quad PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
+target_link_libraries(04_quad glad glfw glm assimp stb)
 
 # --- Copy shaders ---
 set(SHADERS_SRC_DIR "${CMAKE_CURRENT_SOURCE_DIR}/shaders")

@@ -10,34 +10,18 @@
  *                 May also be GL_DYNAMIC_DRAW or GL_STREAM_DRAW.
  */
 EBO::EBO(const void* data, unsigned int size, unsigned int drawType): size(size) {
-    // ID to the buffer
-    unsigned int EBO;
-
     // Create one buffer, and update EBO with the buffer ID
-    glGenBuffers(1, &EBO);
+    glGenBuffers(1, &ID);
 
     // Bind the ebo to start working on it
-    glBindBuffer(GL_ARRAY_BUFFER, EBO);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ID);
 
     // Now, we can add our vertex data to the EBO
-    glBufferData(GL_ARRAY_BUFFER, size, data, GL_STATIC_DRAW);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, size, data, GL_STATIC_DRAW);
 
     // Unbind the buffer for safety
-    glBindBuffer(GL_ARRAY_BUFFER, 0);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 }
-
-/**
- * @brief Construct a new EBO object from a vector of data. 
- * 
- * @param data A reference to a vector of data to populate the EBO
- * @param drawType Specifies how OpenGL should store/write to buffer data.
- *                 GL_STATIC_DRAW by defult. 
- *                 May also be GL_DYNAMIC_DRAW or GL_STREAM_DRAW.
- */
-template<typename T>
-EBO::EBO(const std::vector<T>& data, unsigned int drawType):
-    EBO(EBO::EBO(data.data(), data.size() * sizeof(T), drawType))
-{}
 
 /**
  * @brief Destroy the EBO::EBO object
@@ -52,7 +36,7 @@ EBO::~EBO() {
  * 
  */
 void EBO::bind() {
-    glBindBuffer(GL_ARRAY_BUFFER, ID);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ID);
 }
 
 /**
@@ -60,7 +44,7 @@ void EBO::bind() {
  * 
  */
 void EBO::unbind() {
-    glBindBuffer(GL_ARRAY_BUFFER, 0);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 }
 
 /**
@@ -81,11 +65,11 @@ unsigned int EBO::getSize() {
  */
 void EBO::write(const void* data, unsigned int size, unsigned int offset) {
     // Bind the ebo to start working on it
-    glBindBuffer(GL_ARRAY_BUFFER, ID);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ID);
     // Write the data 
-    glBufferSubData(GL_ARRAY_BUFFER, offset, size, data);
+    glBufferSubData(GL_ELEMENT_ARRAY_BUFFER, offset, size, data);
     // Unbind for safety
-    glBindBuffer(GL_ARRAY_BUFFER, 0);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 }
 
 /**

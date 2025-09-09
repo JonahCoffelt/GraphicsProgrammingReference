@@ -11,7 +11,7 @@ class EBO {
     public:
         EBO(const void* data, unsigned int size, unsigned int drawType=GL_STATIC_DRAW);
         template<typename T>
-        EBO(const std::vector<T>& data, unsigned int drawType=GL_STATIC_DRAW);
+        EBO(const std::vector<T>& data, unsigned int drawType=GL_STATIC_DRAW) : EBO(data.data(), data.size() * sizeof(T), drawType) {}
         
         ~EBO(); 
 

@@ -23,6 +23,8 @@ Small scripts that show how to implement a specific technique.
 Boilerplate example is standalone, but most rely on abstractions found in `examples/src`. 
 - [OpenGL Boilerplate](./examples/01_boilerplate.cpp)
 - [Abstracted Boilerplate](./examples/02_abstracted_boilerplate.cpp)
+- [Triangle](./examples/03_triangle.cpp)
+- [Quad](./examples/04_quad.cpp)
 
 ### Class Implementations
 Collection of fully implemented classes to use for an abstracted OpenGL workflow. 
