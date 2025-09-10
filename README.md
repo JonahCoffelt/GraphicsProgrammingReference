@@ -67,3 +67,4 @@ This creates a seperate executable for every example. Simply run the desired exa
 ## Sources
 Here is a list of sources used to create this reference. I highly reccomend all of these for deeper understanding:
 - [learnopengl](https://learnopengl.com)
+- [OpenGL Wiki](https://www.khronos.org/opengl/wiki/)
