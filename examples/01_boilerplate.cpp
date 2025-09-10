@@ -31,7 +31,7 @@ int main() {
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
     // Create a window based on the hints
-    GLFWwindow* window = glfwCreateWindow(800, 800, "OpenGL Window", NULL, NULL);
+    GLFWwindow* window = glfwCreateWindow(800, 800, "Exmaple 1: Boilerplater", NULL, NULL);
 
     // Check the GLFW window
     if (window == NULL) {

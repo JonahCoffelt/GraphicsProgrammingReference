@@ -1,3 +1,4 @@
+#define STB_IMAGE_IMPLEMENTATION
 #include "image.h"
 
 /**
@@ -7,7 +8,7 @@
  */
 Image::Image(std::string file) {
     stbi_set_flip_vertically_on_load(true);  
-    unsigned char *data = stbi_load(file.c_str(), &width, &height, &nChannels, 0); 
+    data = stbi_load(file.c_str(), &width, &height, &nChannels, 0); 
     if (!data) { std::cout << "Failed to load texture" << std::endl; }
 }
 

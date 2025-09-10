@@ -14,7 +14,7 @@
 #include "src/vao.h"
 
 int main() {
-    Window* window = new Window(800, 800, "Example 3: Triangle");
+    Window* window = new Window(800, 800, "Example 5: Color");
 
     std::vector<float> vertices {
         -0.5f, -0.5f, 0.0f,   1.0, 0.0, 0.0,

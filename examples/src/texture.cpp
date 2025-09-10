@@ -17,6 +17,15 @@ Texture::Texture(Image* image) {
 }
 
 /**
+ * @brief Destroy the Texture object, release GL data
+ *        Does not destroy the image.
+ * 
+ */
+Texture::~Texture() {
+    glDeleteTextures(1, &ID);
+}
+
+/**
  * @brief Binds the texture to make changes or use for texture unit
  * 
  */
