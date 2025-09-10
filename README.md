@@ -17,6 +17,7 @@ References on various topics regarding OpenGL theory and implementation.
 - [EBO](./opengl_reference/ebo.md)
 - [Shader](./opengl_reference/shader.md)
 - [VAO](./opengl_reference/vao.md)
+- [Texture](./opengl_reference/texture.md)
 
 ### Rendering Methods
 High-level overviews of different methods/paradigms for therendering pipeline.
@@ -41,6 +42,8 @@ These are used in many of the examples.
 - [EBO Class](./examples/src/ebo.cpp)
 - [Shader class](./examples/src/shader.cpp)
 - [VAO Class](./examples/src/vao.cpp)
+- [Image Class](./examples/src/image.cpp)
+- [Texture Class](./examples/src/texture.cpp)
 
 ## Usage
 This repo contains a number of examples. Use CMake to run these examples from source.
