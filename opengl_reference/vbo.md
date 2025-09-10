@@ -7,7 +7,7 @@ In essence, a VBO is just an array of vertices.
 
 # Implementation
 
-Full implementation for vbo class can be found [here](../examples/src/vbo.cpp)
+Full implementation for [vbo class](../examples/src/vbo.cpp)
 
 In OpenGL, buffers are created with an ID. 
 This ID should be maintained to bind, access, and modify the buffer later on.

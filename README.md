@@ -4,7 +4,7 @@ A collection of notes and scripts for various graphics programming techniques an
 <p align="center">
     <img src="examples/images/quad.png" alt="mud" width="200"/>
     <img src="examples/images/triangle.png" alt="foil" width="200"/>
-    <img src="examples/images/quad.png" alt="mud" width="200"/>
+    <img src="examples/images/texture.png" alt="mud" width="200"/>
     <img src="examples/images/triangle.png" alt="mud" width="200"/>
 </p>
 
@@ -41,7 +41,7 @@ These are used in many of the examples.
 - [Window Class](./examples/src/window.cpp)
 - [VBO Class](./examples/src/vbo.cpp)
 - [EBO Class](./examples/src/ebo.cpp)
-- [Shader class](./examples/src/shader.cpp)
+- [Shader Class](./examples/src/shader.cpp)
 - [VAO Class](./examples/src/vao.cpp)
 - [Image Class](./examples/src/image.cpp)
 - [Texture Class](./examples/src/texture.cpp)

@@ -5,7 +5,7 @@ A VAO is used as a central point which nicely packages all nessecary data to ren
 
 # Implementation
 
-Full implementation for vao class can be found [here](../examples/src/vao.cpp)
+Full implementation for [vao class](../examples/src/vao.cpp)
 
 To start, generate a vao similar to how you would a vbo or ebo.
 

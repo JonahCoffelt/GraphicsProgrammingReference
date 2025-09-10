@@ -6,6 +6,9 @@ An image is a 1D, 2D, or 3D array of pixels with a particular format.
 
 ## Creating a Texture
 
+Full implementation for [texture class](../examples/src/texture.cpp)
+Full implementation for [image class](../examples/src/image.cpp)
+
 Generally, we will create textures from file using stb_image, a header only image loading library. 
 
 ### Loading and Image
