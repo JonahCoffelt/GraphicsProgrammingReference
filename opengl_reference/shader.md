@@ -102,6 +102,14 @@ glDeleteShader(fragment);
 ```
 
 
+## Using a Shader
+
+If you want to render some VAO using this shader, you must tell OpenGL to use the shader.
+
+```c++
+glUseProgram(shader);
+```
+
 ## Releasing a Shader Program
 
 Once you are finished with a shader program, make sure to release the data.
