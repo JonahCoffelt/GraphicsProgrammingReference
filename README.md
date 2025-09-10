@@ -1,6 +1,12 @@
 # Graphics Programming Reference
 A collection of notes and scripts for various graphics programming techniques and paradigms. This is not intended to be a guide for graphics programming beginners, but it will cover theory and implementation of beginner to advanced techniques.
 
+<p align="center">
+    <img src="examples/images/quad.png" alt="mud" width="200"/>
+    <img src="examples/images/triangle.png" alt="foil" width="200"/>
+    <img src="examples/images/quad.png" alt="mud" width="200"/>
+    <img src="examples/images/triangle.png" alt="mud" width="200"/>
+</p>
 
 ## Contents
 
