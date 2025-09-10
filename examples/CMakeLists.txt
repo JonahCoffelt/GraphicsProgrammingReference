@@ -50,6 +50,11 @@ add_executable(05_color_attrib 05_color_attrib.cpp ${ENGINE_SRC})
 target_include_directories(05_color_attrib PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
 target_link_libraries(05_color_attrib glad glfw glm assimp stb)
 
+# Texture Example
+add_executable(06_texture 06_texture.cpp ${ENGINE_SRC})
+target_include_directories(06_texture PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
+target_link_libraries(06_texture glad glfw glm assimp stb)
+
 # --- Copy shaders ---
 set(SHADERS_SRC_DIR "${CMAKE_CURRENT_SOURCE_DIR}/shaders")
 set(SHADERS_DST_DIR "${CMAKE_CURRENT_BINARY_DIR}/shaders")

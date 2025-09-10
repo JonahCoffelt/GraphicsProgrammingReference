@@ -12,7 +12,7 @@
 #include "src/window.h"
 
 int main() {
-    Window* window = new Window(800, 800, "Example 2");
+    Window* window = new Window(800, 800, "Example 2: Boilerplate");
 
     while (window->isRunning()) {
         window->clear(0.2, 0.3, 0.3, 1.0);
