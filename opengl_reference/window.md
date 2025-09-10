@@ -5,7 +5,7 @@ For full boilerplate code, see the [boilerplate](../examples/01_boilerplate.cpp)
 
 ## Implementation
 
-Full implementation for window class can be found [here](../examples/src/window.cpp)
+Full implementation for [window class](../examples/src/window.cpp)
 
 To start, you need to set initalize GLFW and create a window for OpenGL. 
 

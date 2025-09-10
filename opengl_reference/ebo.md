@@ -7,7 +7,7 @@ Using an EBO allows us to avoid duplicating data in a VBO when a vertex is used 
 
 # Implementation
 
-Full implementation for ebo class can be found [here](../examples/src/ebo.cpp)
+Full implementation for [ebo class](../examples/src/ebo.cpp)
 
 ```c++
 // Assume an array of indices
