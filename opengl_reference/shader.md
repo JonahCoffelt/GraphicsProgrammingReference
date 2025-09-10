@@ -13,13 +13,13 @@ The vertex shader handles how we manipulate geometry, and the fragment shader ha
 For now, lets assume we have these strings defined in our c++ file. 
 
 ```c++
-const char *vertexShaderSource = "#version 330 core\n"
+const char* vertexShaderSource = "#version 330 core\n"
     "layout (location = 0) in vec3 aPos;\n"
     "void main()\n"
     "{\n"
     "   gl_Position = vec4(aPos.x, aPos.y, aPos.z, 1.0);\n"
     "}\0";
-const char *fragmentShaderSource = "#version 330 core\n"
+const char* fragmentShaderSource = "#version 330 core\n"
     "out vec4 FragColor;\n"
     "void main()\n"
     "{\n"
@@ -117,39 +117,26 @@ Oftentimes, it is preferable to load shaders from files rather than put the sour
 This is not an OpenGL topic, so I will simply provide the code and leave it to the reader to get a deeper explination if desired.
 
 ```c++
-const char* vertexPath = "shader.vert";
-const char* fragmentPath = "shader.frag";
+// Example path for vertex shader
+const char* path = "shader.vert"
 
-std::string vertexCode;
-std::string fragmentCode;
-std::ifstream vertexFile;
-std::ifstream fragmentFile;
+// Set out string and stream
+std::string content;
+std::ifstream file;
+file.exceptions(std::ifstream::failbit | std::ifstream::badbit);
 
-vertexFile.exceptions(std::ifstream::failbit | std::ifstream::badbit);
-fragmentFile.exceptions(std::ifstream::failbit | std::ifstream::badbit);
-
+// Attempt to load the file and read to string
 try {
-    // Open files
-    vertexFile.open(vertexPath);
-    fragmentFile.open(fragmentPath);
-
-    // Read files buffers to streams
+    file.open(path);
     std::stringstream vertexStream, fragmentStream;
-    vertexStream << vertexFile.rdbuf();
-    fragmentStream << fragmentFile.rdbuf();
-
-    // Save shader code as string
-    vertexCode = vertexStream.str();
-    fragmentCode = fragmentStream.str();
-
-    // Close files
-    vertexFile.close();
-    fragmentFile.close();
+    vertexStream << file.rdbuf();
+    content = vertexStream.str();
+    file.close();
 }
 catch (std::ifstream::failure e) {
     std::cout << "ERROR::SHADER::FILE_NOT_SUCCESFULLY_READ" << std::endl;
 }
 
-const char* vertexShaderCode = vertexCode.c_str();
-const char* fragmentShaderCode = fragmentCode.c_str();
+// Use content as the shader source
+const char* vertexShaderSource = content;
 ```
