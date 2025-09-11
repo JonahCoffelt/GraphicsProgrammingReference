@@ -1,7 +1,7 @@
 /**
- * @file 06_texture.cpp
+ * @file 07_transformation.cpp
  * @author Jonah Coffelt
- * @brief Shows how to create an use a texture
+ * @brief Shows how to create and apply transformations
  * @version 0.1
  * @date 2025-09-11
  * 
@@ -19,7 +19,7 @@
 
 int main() {
     // Create a GLFW window
-    Window* window = new Window(800, 800, "Example 3: Triangle");
+    Window* window = new Window(800, 800, "Example 7: Transformation");
 
     // Vertex data for a quad
     std::vector<float> vertices = {
@@ -35,7 +35,7 @@ int main() {
     }; 
     
     // Load shader from file
-    Shader* shader = new Shader("shaders/06_texture.vert", "shaders/06_texture.frag");
+    Shader* shader = new Shader("shaders/07_transformation.vert", "shaders/07_transformation.frag");
     // Create a buffer from the vertex data
     VBO* vbo = new VBO(vertices);
     // Create a buffer from the index data
@@ -56,6 +56,17 @@ int main() {
     while (window->isRunning()) {
         // Fill the screen with a low blue color
         window->clear(0.2, 0.3, 0.3, 1.0);
+
+        // Get time for animation
+        float t = (float)glfwGetTime();
+        // Create transformations
+        glm::mat4 transform = glm::mat4(1.0f);
+        transform = glm::translate(transform, glm::vec3(sin(t) * 0.5f, cos(t) * 0.5f, 0.0f));
+        transform = glm::rotate(transform, t, glm::vec3(0.0f, 0.0f, 1.0f));
+        transform = glm::scale(transform, glm::vec3(0.5f, 0.5f, 1.0f));
+        // Write the tranformation on the shader
+        shader->setUniform("transform", transform);
+
         // Render the quad vao
         vao->render();
         // Show the screen
