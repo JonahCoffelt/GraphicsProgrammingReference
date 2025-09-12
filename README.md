@@ -19,11 +19,11 @@ References on various topics regarding OpenGL theory and implementation.
 - [VAO](./opengl_reference/vao.md)
 - [Texture](./opengl_reference/texture.md)
 
-### Rendering Methods
+<!-- ### Rendering Methods
 High-level overviews of different methods/paradigms for therendering pipeline.
 - [Individual Draw](./rendering_methods/individual_draw_rendering.md)
 - [Batch](./rendering_methods/batch_rendering.md)
-- [Instance](./rendering_methods/instance_rendering.md)
+- [Instance](./rendering_methods/instance_rendering.md) -->
 
 ### Examples
 Small scripts that show how to implement a specific technique.
@@ -46,6 +46,7 @@ These are used in many of the examples.
 - [VAO Class](./examples/src/vao.cpp)
 - [Image Class](./examples/src/image.cpp)
 - [Texture Class](./examples/src/texture.cpp)
+- [Matrix Class](./examples/src/mat.cpp)
 
 ## Usage
 This repo contains a number of examples. Use CMake to run these examples from source.
