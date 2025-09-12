@@ -53,28 +53,15 @@ Convers the basics of rendering 2D images to the screen.
 ## Chapter 3 - 3D
 Introduces GLM transformations and applies knowledge for 3D graphics
 
+### Transformations
+- [Transformation and GLM Reference](./opengl_reference/transformation.md)
 - [Matrix Class](./examples/src/mat.cpp)
 - [Transformation Example](./examples/07_transformation.cpp)
 
+### Projections
 
-<!-- ### OpenGL Reference
-References on various topics regarding OpenGL theory and implementation.  -->
 
-<!-- ### Rendering Methods
-High-level overviews of different methods/paradigms for therendering pipeline.
-- [Individual Draw](./rendering_methods/individual_draw_rendering.md)
-- [Batch](./rendering_methods/batch_rendering.md)
-- [Instance](./rendering_methods/instance_rendering.md) -->
-
-<!-- ### Examples
-Small scripts that show how to implement a specific technique.
-Boilerplate example is standalone, but most rely on abstractions found in `examples/src`.  -->
-
-<!-- ### Class Implementations
-Collection of fully implemented classes to use for an abstracted OpenGL workflow. 
-These are used in many of the examples.  -->
-
-## Usage
+# Usage
 This repo contains a number of examples. Use CMake to run these examples from source.
 
 ```bash
@@ -96,7 +83,7 @@ This creates a seperate executable for every example. Simply run the desired exa
 ./example
 ```
 
-## Sources
+# Sources
 Here is a list of sources used to create this reference. I highly reccomend all of these for deeper understanding:
 - [learnopengl](https://learnopengl.com)
 - [OpenGL Wiki](https://www.khronos.org/opengl/wiki/)
