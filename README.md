@@ -8,16 +8,57 @@ A collection of notes and scripts for various graphics programming techniques an
     <img src="examples/images/triangle.png" alt="mud" width="200"/>
 </p>
 
-## Contents
+# Contents
 
-### OpenGL Reference
-References on various topics regarding OpenGL theory and implementation. 
-- [GLFW Window](./opengl_reference/window.md)
-- [VBO](./opengl_reference/vbo.md)
-- [EBO](./opengl_reference/ebo.md)
-- [Shader](./opengl_reference/shader.md)
-- [VAO](./opengl_reference/vao.md)
-- [Texture](./opengl_reference/texture.md)
+This repo contains reference/theory pages, class implementations, and example uses. 
+Content has been divided into chapters which progressivly build.
+All [reference pages](./opengl_reference/), [class implementations](./examples/src/), and [example scripts](./examples/) may be found in the linked folders.  
+
+## Chapter 1 - The Basics
+Gets you started with creating a window in OpenGL
+
+- [GLFW Window Reference](./opengl_reference/window.md)
+- [OpenGL Boilerplate](./examples/01_boilerplate.cpp)
+- [Window Class](./examples/src/window.cpp)
+- [Abstracted Boilerplate Example](./examples/02_abstracted_boilerplate.cpp)
+
+## Chapter 2 - Rendering First Steps
+Convers the basics of rendering 2D images to the screen. 
+
+### VBO
+- [VBO Reference](./opengl_reference/vbo.md)
+- [VBO Class](./examples/src/vbo.cpp)
+- [Triangle Example](./examples/03_triangle.cpp)
+
+### EBO
+- [EBO Reference](./opengl_reference/ebo.md)
+- [EBO Class](./examples/src/ebo.cpp)
+- [Quad Example](./examples/04_quad.cpp)
+
+### Shader
+- [Shader Reference](./opengl_reference/shader.md)
+- [Shader Class](./examples/src/shader.cpp)
+
+### VAO
+- [VAO Reference](./opengl_reference/vao.md)
+- [VAO Class](./examples/src/vao.cpp)
+- [Color Attribute Example](./examples/05_color_attrib.cpp)
+
+### Texture
+- [Texture Reference](./opengl_reference/texture.md)
+- [Image Class](./examples/src/image.cpp)
+- [Texture Class](./examples/src/texture.cpp)
+- [Texture Example](./examples/06_texture.cpp)
+
+## Chapter 3 - 3D
+Introduces GLM transformations and applies knowledge for 3D graphics
+
+- [Matrix Class](./examples/src/mat.cpp)
+- [Transformation Example](./examples/07_transformation.cpp)
+
+
+<!-- ### OpenGL Reference
+References on various topics regarding OpenGL theory and implementation.  -->
 
 <!-- ### Rendering Methods
 High-level overviews of different methods/paradigms for therendering pipeline.
@@ -25,28 +66,13 @@ High-level overviews of different methods/paradigms for therendering pipeline.
 - [Batch](./rendering_methods/batch_rendering.md)
 - [Instance](./rendering_methods/instance_rendering.md) -->
 
-### Examples
+<!-- ### Examples
 Small scripts that show how to implement a specific technique.
-Boilerplate example is standalone, but most rely on abstractions found in `examples/src`. 
-- [OpenGL Boilerplate](./examples/01_boilerplate.cpp)
-- [Abstracted Boilerplate](./examples/02_abstracted_boilerplate.cpp)
-- [Triangle](./examples/03_triangle.cpp)
-- [Quad](./examples/04_quad.cpp)
-- [Color Attribute](./examples/05_color_attrib.cpp)
-- [Texture](./examples/06_texture.cpp)
-- [Transformation](./examples/07_transformation.cpp)
+Boilerplate example is standalone, but most rely on abstractions found in `examples/src`.  -->
 
-### Class Implementations
+<!-- ### Class Implementations
 Collection of fully implemented classes to use for an abstracted OpenGL workflow. 
-These are used in many of the examples. 
-- [Window Class](./examples/src/window.cpp)
-- [VBO Class](./examples/src/vbo.cpp)
-- [EBO Class](./examples/src/ebo.cpp)
-- [Shader Class](./examples/src/shader.cpp)
-- [VAO Class](./examples/src/vao.cpp)
-- [Image Class](./examples/src/image.cpp)
-- [Texture Class](./examples/src/texture.cpp)
-- [Matrix Class](./examples/src/mat.cpp)
+These are used in many of the examples.  -->
 
 ## Usage
 This repo contains a number of examples. Use CMake to run these examples from source.
