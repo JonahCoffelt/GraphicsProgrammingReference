@@ -16,6 +16,7 @@
 #include "src/vao.h"
 #include "src/image.h"
 #include "src/texture.h"
+#include "src/mat.h"
 
 int main() {
     // Create a GLFW window
@@ -52,6 +53,8 @@ int main() {
     // Bind the texture to texture unit 0
     texture->use(shader, "texture1", 0);
 
+    Matrix* transform;
+
     // Main loop continues as long as the window is open
     while (window->isRunning()) {
         // Fill the screen with a low blue color
@@ -60,12 +63,12 @@ int main() {
         // Get time for animation
         float t = (float)glfwGetTime();
         // Create transformations
-        glm::mat4 transform = glm::mat4(1.0f);
-        transform = glm::translate(transform, glm::vec3(sin(t) * 0.5f, cos(t) * 0.5f, 0.0f));
-        transform = glm::rotate(transform, t, glm::vec3(0.0f, 0.0f, 1.0f));
-        transform = glm::scale(transform, glm::vec3(0.5f, 0.5f, 1.0f));
+        transform->makeIdentity();
+        transform->translate({sin(t) * 0.5, cos(t) * 0.5, 0.0});
+        transform->rotate({0.0, 0.0, 1.0}, t);
+        transform->scale({0.5, 0.5, 1.0});
         // Write the tranformation on the shader
-        shader->setUniform("transform", transform);
+        shader->setUniform("transform", transform->getMatrix());
 
         // Render the quad vao
         vao->render();
