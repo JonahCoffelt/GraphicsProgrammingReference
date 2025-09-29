@@ -67,9 +67,14 @@ Introduces GLM transformations and applies knowledge for 3D graphics
 ### Going 3D
 - [Projections Reference](./opengl_reference/transformation.md)
 - [3D Cube Example](./examples/09_cube.cpp)
+
+### Camera
 - [Camera Reference](./opengl_reference/camera.md)
+- [Camera Class](./examples/src/camera.cpp)
 - [Camera Example](./examples/10_camera.cpp)
 
+### Meshes
+- [Mesh Reference](./opengl_reference/mesh.md)
 
 # Usage
 This repo contains a number of examples. Use CMake to run these examples from source.
