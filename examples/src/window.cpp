@@ -88,6 +88,13 @@ Window::Window(int width, int height, const char* title) {
     glfwMakeContextCurrent(window);
     if (!confirmGLAD()) { return; }
 
+    // Draws closer objects in front of futher objects
+    glEnable(GL_DEPTH_TEST);  
+    // Does not draw faces that are not facing the camera
+    // glEnable(GL_CULL_FACE);
+    // Antialiasing 
+    glEnable(GL_MULTISAMPLE);
+
     // Set the resize callback
     glViewport(0, 0, width, height);
     glfwSetFramebufferSizeCallback(window, windowResize);

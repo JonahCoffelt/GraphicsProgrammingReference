@@ -60,6 +60,20 @@ add_executable(07_transformation 07_transformation.cpp ${ENGINE_SRC})
 target_include_directories(07_transformation PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
 target_link_libraries(07_transformation glad glfw glm assimp stb)
 
+# Input Example
+add_executable(08_input 08_input.cpp ${ENGINE_SRC})
+target_include_directories(08_input PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
+target_link_libraries(08_input glad glfw glm assimp stb)
+
+# Cube Example
+add_executable(09_cube 09_cube.cpp ${ENGINE_SRC})
+target_include_directories(09_cube PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
+target_link_libraries(09_cube glad glfw glm assimp stb)
+
+# Camera Example
+add_executable(10_camera 10_camera.cpp ${ENGINE_SRC})
+target_include_directories(10_camera PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
+target_link_libraries(10_camera glad glfw glm assimp stb)
 
 # --- Copy shaders ---
 set(SHADERS_SRC_DIR "${CMAKE_CURRENT_SOURCE_DIR}/shaders")

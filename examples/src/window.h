@@ -13,11 +13,13 @@ class Window {
         Window(int width, int height, const char* title);
         ~Window();
 
-        void resize(GLFWwindow *window, int width, int height);
+        void resize(GLFWwindow* window, int width, int height);
 
         bool isRunning();
         void render();
         void clear(float r=0.0, float g=0.0, float b=0.0, float a=1.0);
+
+        GLFWwindow* getWindow() { return window; }
 };
 
 #endif

@@ -5,7 +5,7 @@ A collection of notes and scripts for various graphics programming techniques an
     <img src="examples/images/quad.png" alt="mud" width="200"/>
     <img src="examples/images/triangle.png" alt="foil" width="200"/>
     <img src="examples/images/texture.png" alt="mud" width="200"/>
-    <img src="examples/images/triangle.png" alt="mud" width="200"/>
+    <img src="examples/images/cube.png" alt="mud" width="200"/>
 </p>
 
 # Contents
@@ -58,7 +58,17 @@ Introduces GLM transformations and applies knowledge for 3D graphics
 - [Matrix Class](./examples/src/mat.cpp)
 - [Transformation Example](./examples/07_transformation.cpp)
 
-### Projections
+### Input
+- [Input Reference](./opengl_reference/input.md)
+- [Mouse Class](./examples/src/mouse.cpp)
+- [Keyboard Class](./examples/src/keyboard.cpp)
+- [Mouse Input Example](./examples/08_input.cpp)
+
+### Going 3D
+- [Projections Reference](./opengl_reference/transformation.md)
+- [3D Cube Example](./examples/09_cube.cpp)
+- [Camera Reference](./opengl_reference/camera.md)
+- [Camera Example](./examples/10_camera.cpp)
 
 
 # Usage
