@@ -51,7 +51,7 @@ Convers the basics of rendering 2D images to the screen.
 - [Texture Example](./examples/06_texture.cpp)
 
 ## Chapter 3 - 3D
-Introduces GLM transformations and applies knowledge for 3D graphics
+Introduces GLM, inputs, and models and applies knowledge for 3D graphics
 
 ### Transformations
 - [Transformation and GLM Reference](./opengl_reference/transformation.md)
@@ -77,6 +77,11 @@ Introduces GLM transformations and applies knowledge for 3D graphics
 - [Mesh Reference](./opengl_reference/mesh.md)
 - [Mesh Class](./examples/src/mesh.cpp)
 - [Mesh Example](./examples/11_mesh.cpp)
+
+
+## Chapter 4 - Engine Design
+
+
 
 # Usage
 This repo contains a number of examples. Use CMake to run these examples from source.
