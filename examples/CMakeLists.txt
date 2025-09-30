@@ -75,11 +75,16 @@ add_executable(10_camera 10_camera.cpp ${ENGINE_SRC})
 target_include_directories(10_camera PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
 target_link_libraries(10_camera glad glfw glm assimp stb)
 
+# Mesh Example
+add_executable(11_mesh 11_mesh.cpp ${ENGINE_SRC})
+target_include_directories(11_mesh PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
+target_link_libraries(11_mesh glad glfw glm assimp stb)
+
 # --- Copy shaders ---
 set(SHADERS_SRC_DIR "${CMAKE_CURRENT_SOURCE_DIR}/shaders")
 set(SHADERS_DST_DIR "${CMAKE_CURRENT_BINARY_DIR}/shaders")
 file(GLOB_RECURSE SHADER_FILES "${SHADERS_SRC_DIR}/*")
-add_custom_command(
+add_custom_command( 
     OUTPUT ${SHADERS_DST_DIR}/.shader_copy_stamp
     COMMAND ${CMAKE_COMMAND} -E copy_directory ${SHADERS_SRC_DIR} ${SHADERS_DST_DIR}
     COMMAND ${CMAKE_COMMAND} -E touch ${SHADERS_DST_DIR}/.shader_copy_stamp

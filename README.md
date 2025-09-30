@@ -75,6 +75,8 @@ Introduces GLM transformations and applies knowledge for 3D graphics
 
 ### Meshes
 - [Mesh Reference](./opengl_reference/mesh.md)
+- [Mesh Class](./examples/src/mesh.cpp)
+- [Mesh Example](./examples/11_mesh.cpp)
 
 # Usage
 This repo contains a number of examples. Use CMake to run these examples from source.
