@@ -90,6 +90,7 @@ set(SHADERS_SRC_DIR "${CMAKE_CURRENT_SOURCE_DIR}/shaders")
 set(SHADERS_DST_DIR "${CMAKE_CURRENT_BINARY_DIR}/shaders")
 file(GLOB_RECURSE SHADER_FILES "${SHADERS_SRC_DIR}/*")
 add_custom_command( 
+add_custom_command( 
     OUTPUT ${SHADERS_DST_DIR}/.shader_copy_stamp
     COMMAND ${CMAKE_COMMAND} -E copy_directory ${SHADERS_SRC_DIR} ${SHADERS_DST_DIR}
     COMMAND ${CMAKE_COMMAND} -E touch ${SHADERS_DST_DIR}/.shader_copy_stamp
