@@ -24,66 +24,66 @@ list(REMOVE_ITEM ENGINE_SRC
     ${CMAKE_CURRENT_SOURCE_DIR}/*.cpp
 )
 
-# --- Make Example Executables ---
-# Boilerplate Example
-add_executable(01_boilerplate 01_boilerplate.cpp ${ENGINE_SRC})
-target_include_directories(01_boilerplate PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
-target_link_libraries(01_boilerplate glad glfw glm assimp stb)
+# # --- Make Example Executables ---
+# # Boilerplate Example
+# add_executable(01_boilerplate 01_boilerplate.cpp ${ENGINE_SRC})
+# target_include_directories(01_boilerplate PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
+# target_link_libraries(01_boilerplate glad glfw glm assimp stb)
 
-# Abstract Boilerplate Example
-add_executable(02_abstracted_boilerplate 02_abstracted_boilerplate.cpp ${ENGINE_SRC})
-target_include_directories(02_abstracted_boilerplate PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
-target_link_libraries(02_abstracted_boilerplate glad glfw glm assimp stb)
+# # Abstract Boilerplate Example
+# add_executable(02_abstracted_boilerplate 02_abstracted_boilerplate.cpp ${ENGINE_SRC})
+# target_include_directories(02_abstracted_boilerplate PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
+# target_link_libraries(02_abstracted_boilerplate glad glfw glm assimp stb)
 
-# Triangle Example
-add_executable(03_triangle 03_triangle.cpp ${ENGINE_SRC})
-target_include_directories(03_triangle PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
-target_link_libraries(03_triangle glad glfw glm assimp stb)
+# # Triangle Example
+# add_executable(03_triangle 03_triangle.cpp ${ENGINE_SRC})
+# target_include_directories(03_triangle PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
+# target_link_libraries(03_triangle glad glfw glm assimp stb)
 
-# Quad Example
-add_executable(04_quad 04_quad.cpp ${ENGINE_SRC})
-target_include_directories(04_quad PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
-target_link_libraries(04_quad glad glfw glm assimp stb)
+# # Quad Example
+# add_executable(04_quad 04_quad.cpp ${ENGINE_SRC})
+# target_include_directories(04_quad PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
+# target_link_libraries(04_quad glad glfw glm assimp stb)
 
-# Color Example
-add_executable(05_color_attrib 05_color_attrib.cpp ${ENGINE_SRC})
-target_include_directories(05_color_attrib PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
-target_link_libraries(05_color_attrib glad glfw glm assimp stb)
+# # Color Example
+# add_executable(05_color_attrib 05_color_attrib.cpp ${ENGINE_SRC})
+# target_include_directories(05_color_attrib PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
+# target_link_libraries(05_color_attrib glad glfw glm assimp stb)
 
-# Texture Example
-add_executable(06_texture 06_texture.cpp ${ENGINE_SRC})
-target_include_directories(06_texture PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
-target_link_libraries(06_texture glad glfw glm assimp stb)
+# # Texture Example
+# add_executable(06_texture 06_texture.cpp ${ENGINE_SRC})
+# target_include_directories(06_texture PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
+# target_link_libraries(06_texture glad glfw glm assimp stb)
 
-# Transform Example
-add_executable(07_transformation 07_transformation.cpp ${ENGINE_SRC})
-target_include_directories(07_transformation PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
-target_link_libraries(07_transformation glad glfw glm assimp stb)
+# # Transform Example
+# add_executable(07_transformation 07_transformation.cpp ${ENGINE_SRC})
+# target_include_directories(07_transformation PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
+# target_link_libraries(07_transformation glad glfw glm assimp stb)
 
-# Input Example
-add_executable(08_input 08_input.cpp ${ENGINE_SRC})
-target_include_directories(08_input PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
-target_link_libraries(08_input glad glfw glm assimp stb)
+# # Input Example
+# add_executable(08_input 08_input.cpp ${ENGINE_SRC})
+# target_include_directories(08_input PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
+# target_link_libraries(08_input glad glfw glm assimp stb)
 
-# Cube Example
-add_executable(09_cube 09_cube.cpp ${ENGINE_SRC})
-target_include_directories(09_cube PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
-target_link_libraries(09_cube glad glfw glm assimp stb)
+# # Cube Example
+# add_executable(09_cube 09_cube.cpp ${ENGINE_SRC})
+# target_include_directories(09_cube PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
+# target_link_libraries(09_cube glad glfw glm assimp stb)
 
-# Camera Example
-add_executable(10_camera 10_camera.cpp ${ENGINE_SRC})
-target_include_directories(10_camera PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
-target_link_libraries(10_camera glad glfw glm assimp stb)
+# # Camera Example
+# add_executable(10_camera 10_camera.cpp ${ENGINE_SRC})
+# target_include_directories(10_camera PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
+# target_link_libraries(10_camera glad glfw glm assimp stb)
 
-# Mesh Example
-add_executable(11_mesh 11_mesh.cpp ${ENGINE_SRC})
-target_include_directories(11_mesh PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
-target_link_libraries(11_mesh glad glfw glm assimp stb)
+# # Mesh Example
+# add_executable(11_mesh 11_mesh.cpp ${ENGINE_SRC})
+# target_include_directories(11_mesh PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
+# target_link_libraries(11_mesh glad glfw glm assimp stb)
 
-# Node Example
-add_executable(12_node 12_node.cpp ${ENGINE_SRC})
-target_include_directories(12_node PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
-target_link_libraries(12_node glad glfw glm assimp stb)
+# # Node Example
+# add_executable(12_node 12_node.cpp ${ENGINE_SRC})
+# target_include_directories(12_node PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
+# target_link_libraries(12_node glad glfw glm assimp stb)
 
 # Instance Example
 add_executable(13_instance 13_instance.cpp ${ENGINE_SRC})

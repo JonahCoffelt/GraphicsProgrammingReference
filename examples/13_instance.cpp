@@ -38,7 +38,7 @@ int main() {
     Camera camera({-3, 0, 0});
 
     // Vertex data for a cube
-    Mesh* sphereMesh = new Mesh("models/cube.obj");
+    Mesh* mesh = new Mesh("models/cube.obj");
     // Load shader from file
     Shader* shader = new Shader("shaders/13_instance.vert", "shaders/13_instance.frag");
     // Create a texture from image
@@ -47,8 +47,8 @@ int main() {
     texture->setFilter(GL_LINEAR, GL_LINEAR_MIPMAP_LINEAR);
 
     // Create VBO, EBO, and VAO
-    VBO* vbo = new VBO(sphereMesh->getVertices());
-    EBO* ebo = new EBO(sphereMesh->getIndices());
+    VBO* vbo = new VBO(mesh->getVertices());
+    EBO* ebo = new EBO(mesh->getIndices());
     VAO* vao = new VAO(shader, vbo, ebo);
 
     // Create buffer of instance data (just a grid of positions in this case)
@@ -67,6 +67,7 @@ int main() {
     VBO* instanceVBO = new VBO(translations);
 
     // Bind the buffer and instance buffer
+    // We specify the vbo/ebo attribs here because the data is more complex now
     vao->bindBuffer(vbo, ebo, {"in_position", "in_uv", "in_normal"});
     vao->bindBuffer(instanceVBO, {"instance_position"}, 1);
 
@@ -86,13 +87,10 @@ int main() {
         camera.update(mouse, keys);
         // Use the camera on the shader
         camera.use(shader);
-        // Update and render the node
 
-        // vao->render();
-        vao->bind();
-        shader->use();
-        // GL_TRIANGLES, 0, ebo->getSize(), 100
-        glDrawElementsInstanced(GL_TRIANGLES, ebo->getSize(), GL_UNSIGNED_INT, 0, (n * 2) * (n * 2) * (n * 2)); 
+        // Render the vao with specified number of instances
+        vao->render((n * 2) * (n * 2) * (n * 2));
+
         // Show the screen
         window->render();
     }
@@ -101,5 +99,9 @@ int main() {
     delete image;
     delete texture;
     delete shader;
+    delete vbo;
+    delete ebo;
+    delete instanceVBO;
+    delete mesh;
     delete window;
 }

@@ -18,7 +18,7 @@ class VAO {
         VAO(Shader* shader, VBO* vertices, EBO* indices=nullptr);
         ~VAO();
 
-        void render();
+        void render(unsigned int instanceCount=0);
         
         void bind();
         void bindAttribute(GLint location, GLint count, unsigned int dataType, unsigned int stride, unsigned int offset, unsigned int divisor=0);

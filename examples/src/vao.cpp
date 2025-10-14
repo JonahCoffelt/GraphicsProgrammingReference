@@ -99,7 +99,7 @@ void VAO::bindAttribute(GLint location, GLint count, unsigned int dataType, unsi
     bind();
     glVertexAttribPointer(location, count, GL_FLOAT, dataType, stride, (const void*)(GLintptr)offset);
     glEnableVertexAttribArray(location);
-    glVertexAttribDivisor(location, divisor);  
+    glVertexAttribDivisor(location, divisor);
 }
 
 /**
@@ -114,18 +114,30 @@ void VAO::bind() {
  * @brief Renders this VAO based on current data
  * 
  */
-void VAO::render() {
+void VAO::render(unsigned int instanceCount) {
     // Use the shader and this VAO
     shader->use();
     bind();
     
     // Choose render method based on EBO
     if (ebo) {
-        int nVerts = ebo->getSize() / sizeof(unsigned int);
-        glDrawElements(GL_TRIANGLES, nVerts, GL_UNSIGNED_INT, 0);
+        int vertexCount = ebo->getSize() / sizeof(unsigned int);
+        
+        if (instanceCount) {
+            glDrawElementsInstanced(GL_TRIANGLES, vertexCount, GL_UNSIGNED_INT, 0, instanceCount); 
+        } 
+        else {
+            glDrawElements(GL_TRIANGLES, vertexCount, GL_UNSIGNED_INT, 0);
+        }
     }
     else {
-        int nVerts = vbo->getSize() / (sizeof(float) * 3);
-        glDrawArrays(GL_TRIANGLES, 0, nVerts);
+        int vertexCount = vbo->getSize() / (sizeof(float) * 3);
+
+        if (instanceCount) {
+            glDrawArraysInstanced(GL_TRIANGLES, 0, vertexCount, instanceCount);
+        }
+        else {
+            glDrawArrays(GL_TRIANGLES, 0, vertexCount);
+        }
     }
 }
