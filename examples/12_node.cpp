@@ -1,7 +1,7 @@
 /**
  * @file 12_node.cpp
  * @author Jonah Coffelt
- * @brief 
+ * @brief Probably going to go away tbh
  * @version 0.1
  * @date 2025-09-30
  * 

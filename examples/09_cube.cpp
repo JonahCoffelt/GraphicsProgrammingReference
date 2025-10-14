@@ -1,7 +1,7 @@
 /**
  * @file 09_cube.cpp
  * @author Jonah Coffelt
- * @brief 
+ * @brief Shows how to render a cube with transformations
  * @version 0.1
  * @date 2025-09-13
  * 

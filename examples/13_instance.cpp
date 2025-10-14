@@ -1,9 +1,9 @@
 /**
- * @file 12_node.cpp
+ * @file 13_instance.cpp
  * @author Jonah Coffelt
- * @brief 
+ * @brief Shows how to use the VAO class to do instanced rendering
  * @version 0.1
- * @date 2025-09-30
+ * @date 2025-10-14
  * 
  * @copyright Copyright (c) 2025
  * 

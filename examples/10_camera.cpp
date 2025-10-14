@@ -1,7 +1,7 @@
 /**
  * @file 10_camera.cpp
  * @author Jonah Coffelt
- * @brief 
+ * @brief Shows how to use the camera class
  * @version 0.1
  * @date 2025-09-13
  * 
