@@ -1,5 +1,5 @@
 /**
- * @file 08_cube.cpp
+ * @file 10_camera.cpp
  * @author Jonah Coffelt
  * @brief 
  * @version 0.1

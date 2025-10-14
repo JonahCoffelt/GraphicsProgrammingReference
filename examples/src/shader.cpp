@@ -183,7 +183,7 @@ void Shader::loadAttributes() {
     stride = 0;
     for (GLint i = 0; i < nAttributes; i++) {
         glGetActiveAttrib(ID, (GLuint)i, bufSize, &length, &size, &type, name);
-        attributes.push_back({i, getGLTypeComponentCount(type), type, stride});
+        attributes.push_back({name, i, getGLTypeComponentCount(type), type, stride});
         stride += getGLTypeSize(type);
     }
 }

@@ -23,6 +23,70 @@ VAO::VAO(Shader* shader, VBO* vertices, EBO* indices): shader(shader), vbo(verti
 }
 
 /**
+ * @brief Bind a VBO to this VAO with a given list of attribs. Can be used for standard vbo or instance buffer.
+ * 
+ * @param buffer Pointer to the vbo to bind 
+ * @param attribs A vector of strings of the attribute names as they appear in the shader code
+ * @param divisor Set to 0 for default. Use 1 for standard instancing. 
+ */
+void VAO::bindBuffer(VBO* buffer, std::vector<std::string> attribs, unsigned int divisor) {
+    // Bind the VAO and VBO
+    bind();
+    buffer->bind();
+
+    // Bind the given attribs
+    bindAttributes(attribs, divisor);
+}
+
+/**
+ * @brief Bind a VBO and EBO to this VAO with a given list of attribs. Can be used for standard vbo or instance buffer.
+ * 
+ * @param buffer Pointer to the vbo to bind
+ * @param indices Pointer to the ebo to bind
+ * @param attribs A vector of strings of the attribute names as they appear in the shader code
+ * @param divisor Set to 0 for default. Use 1 for standard instancing. 
+ */
+void VAO::bindBuffer(VBO* buffer, EBO* indices, std::vector<std::string> attribs, unsigned int divisor) {
+    // Bind the VAO, EBO, and VBO
+    bind();
+    buffer->bind();
+    indices->bind();
+
+    // Bind the given attribs
+    bindAttributes(attribs, divisor);
+}
+
+/**
+ * @brief Bind a list of attributes. Per attribute information pulled from this VAO's shader
+ * 
+ * @param attribs A vector of strings of the attribute names as they appear in the shader code
+ * @param divisor Set to 0 for default. Use 1 for standard instancing. 
+ */
+void VAO::bindAttributes(std::vector<std::string> attribs, unsigned int divisor) {
+    // Get the stride
+    unsigned int stride = 0;
+    for (auto attrib : shader->getAttributes()) {
+        if (std::find(attribs.begin(), attribs.end(), attrib.name) == attribs.end()) {
+            continue; 
+        }
+
+        stride += attrib.count;
+    }
+
+    // Bind attributes
+    unsigned int offset = 0;
+    for (auto attrib : shader->getAttributes()) {
+        if (std::find(attribs.begin(), attribs.end(), attrib.name) == attribs.end()) {
+            continue;
+        }
+        // Bind the attribute
+        bindAttribute(attrib.location, attrib.count, attrib.dataType, stride * sizeof(float), offset * sizeof(float), divisor);
+        // Increment the offset within this buffer
+        offset += attrib.count;
+    }
+}
+
+/**
  * @brief Binds an attribute on the vao.
  * 
  * @param location The location of the attribute in the shader source
@@ -31,10 +95,11 @@ VAO::VAO(Shader* shader, VBO* vertices, EBO* indices): shader(shader), vbo(verti
  * @param stride Space between each occurrence of the attribute in the VBO
  * @param offset Starting point of attribute in the VBO
  */
-void VAO::bindAttribute(GLint location, GLint count, unsigned int dataType, unsigned int stride, unsigned int offset) {
+void VAO::bindAttribute(GLint location, GLint count, unsigned int dataType, unsigned int stride, unsigned int offset, unsigned int divisor) {
     bind();
     glVertexAttribPointer(location, count, GL_FLOAT, dataType, stride, (const void*)(GLintptr)offset);
-    glEnableVertexAttribArray(location);  
+    glEnableVertexAttribArray(location);
+    glVertexAttribDivisor(location, divisor);  
 }
 
 /**

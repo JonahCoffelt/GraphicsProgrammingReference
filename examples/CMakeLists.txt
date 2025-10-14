@@ -85,6 +85,12 @@ add_executable(12_node 12_node.cpp ${ENGINE_SRC})
 target_include_directories(12_node PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
 target_link_libraries(12_node glad glfw glm assimp stb)
 
+# Instance Example
+add_executable(13_instance 13_instance.cpp ${ENGINE_SRC})
+target_include_directories(13_instance PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
+target_link_libraries(13_instance glad glfw glm assimp stb)
+
+
 # --- Copy shaders ---
 set(SHADERS_SRC_DIR "${CMAKE_CURRENT_SOURCE_DIR}/shaders")
 set(SHADERS_DST_DIR "${CMAKE_CURRENT_BINARY_DIR}/shaders")
