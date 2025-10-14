@@ -5,6 +5,7 @@
 
 // GLint location, GLint count, unsigned int dataType, unsigned int stride, unsigned int offset
 struct Attribute {
+    std::string name;
     GLint location;
     GLint count;
     GLenum dataType;

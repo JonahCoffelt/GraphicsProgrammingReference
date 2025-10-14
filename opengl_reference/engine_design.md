@@ -11,7 +11,7 @@ So at this point, we should shift gears and think about how to best design an en
 ## Insipration
 
 Lucky for us, there are plenty of great engines out there that already have established design paradigms for us to use. 
-My favorite design paradigm is that of Godot, which is primarily node based. 
+My personal favorite design paradigm is that of Godot, which is primarily node based. 
 
 
 ## Nodes

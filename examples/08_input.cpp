@@ -1,7 +1,7 @@
 /**
- * @file 07_transformation.cpp
+ * @file 08_input.cpp
  * @author Jonah Coffelt
- * @brief Shows how to create and apply transformations
+ * @brief Shows how to use key and mouse input
  * @version 0.1
  * @date 2025-09-11
  * 
