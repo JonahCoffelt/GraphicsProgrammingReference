@@ -79,7 +79,17 @@ Introduces GLM, inputs, and models and applies knowledge for 3D graphics
 - [Mesh Example](./examples/11_mesh.cpp)
 
 
-## Chapter 4 - Engine Design
+## Chapter 4 - Lighting
+TODO
+
+## Chapter 5 - OpenGL Techniques
+At this point, we need to introduce a number of techniques that are seemingly unrelated. 
+These will be useful for general engine design later on.
+
+### Instancing
+- [Instance Reference](./opengl_reference/instance.md)
+- [VAO Class with Instance](./examples/src/vao.cpp)
+- [Instance Example](./examples/13_instance.cpp)
 
 
 
