@@ -81,18 +81,18 @@ int main() {
     // Set the filter on the texture to linear
     texture->setFilter(GL_LINEAR, GL_LINEAR_MIPMAP_LINEAR);
     // Bind the texture to texture unit 0
-    texture->use(shader, "texture1", 0);
+    shader->bind("texture1", texture, 0);
 
     // Create matrices for model, view, and projection
-    Matrix model;
-    Matrix view;
-    Matrix projection;
+    Matrix* model = new Matrix();
+    Matrix* view = new Matrix();
+    Matrix* projection = new Matrix();
     // Update the view and perspective matrices
-    view.makeView({0, 0, -3}, {0, 0, 1}, {0, 1, 0});
-    projection.makePerspective(45.0, 1.0, 0.1, 100.0);
+    view->makeView({0, 0, -3}, {0, 0, 1}, {0, 1, 0});
+    projection->makePerspective(45.0, 1.0, 0.1, 100.0);
     // Set the matrices on the shader
-    shader->setUniform("view", view.getMatrix());
-    shader->setUniform("projection", projection.getMatrix());
+    shader->setUniform("view", view->getMatrix());
+    shader->setUniform("projection", projection->getMatrix());
 
     // Main loop continues as long as the window is open
     while (window->isRunning()) {
@@ -102,14 +102,14 @@ int main() {
         // Get time for animation
         float t = (float)glfwGetTime();
         // Create transformations
-        model.makeIdentity();
-        model.translate({sin(t) * 0.5, cos(t) * 0.5, 0.0});
-        model.rotate({0.0, 1.0, 1.0}, t);
-        model.scale({0.5, 0.5, 0.5});
+        model->makeIdentity();
+        model->translate({sin(t) * 0.5, cos(t) * 0.5, 0.0});
+        model->rotate({0.0, 1.0, 1.0}, t);
+        model->scale({0.5, 0.5, 0.5});
         // Write the tranformation on the shader
-        shader->setUniform("model", model.getMatrix());
-
+        
         // Render the quad vao
+        shader->setUniform("model", model->getMatrix());
         vao->render();
         // Show the screen
         window->render();
@@ -117,6 +117,9 @@ int main() {
 
     // Free memory allocations
     delete image;
+    delete model;
+    delete projection;
+    delete view;
     delete texture;
     delete vbo;
     delete shader;

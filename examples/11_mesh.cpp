@@ -57,12 +57,12 @@ int main() {
     // Set the filter on the texture to linear
     texture->setFilter(GL_LINEAR, GL_LINEAR_MIPMAP_LINEAR);
     // Bind the texture to texture unit 0
-    texture->use(shader, "texture1", 0);
+    shader->bind("texture1", texture, 0);
 
     // Create a model matrix for the cube. It will be static in this scene
-    Matrix model;
-    model.makeIdentity();
-    shader->setUniform("model", model.getMatrix());
+    Matrix* model = new Matrix();
+    model->makeIdentity();
+    shader->setUniform("model", model->getMatrix());
 
     // Main loop continues as long as the window is open
     while (window->isRunning()) {
@@ -88,6 +88,7 @@ int main() {
 
     // Free memory allocations
     delete image;
+    delete model;
     delete texture;
     delete vbo;
     delete shader;

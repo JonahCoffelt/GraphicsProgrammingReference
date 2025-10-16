@@ -9,8 +9,9 @@ add_library(glad STATIC include/glad/glad.c)
 target_include_directories(glad PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
 
 # add stb
-add_library(stb INTERFACE include/stb/stb_image.h)
+add_library(stb INTERFACE)
 target_include_directories(stb INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/include)
+
 
 # get other includes glm, glfw
 include(FetchContent)
@@ -90,6 +91,10 @@ add_executable(13_instance 13_instance.cpp ${ENGINE_SRC})
 target_include_directories(13_instance PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
 target_link_libraries(13_instance glad glfw glm assimp stb)
 
+# Texture Array Example
+add_executable(14_texture_array 14_texture_array.cpp ${ENGINE_SRC})
+target_include_directories(14_texture_array PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
+target_link_libraries(14_texture_array glad glfw glm assimp stb)
 
 # --- Copy shaders ---
 set(SHADERS_SRC_DIR "${CMAKE_CURRENT_SOURCE_DIR}/shaders")
