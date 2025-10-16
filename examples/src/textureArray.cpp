@@ -7,12 +7,11 @@
  * @param width The desired width of the images in the texture array. Will resize images if needed.
  * @param height The desired height of the images in the texture array. Will resize images if needed.
  * @param images A vector of image pointers
+ * @param capacity The inital capacity of the array for preallocation. Will use size of images if not given.
  */
-TextureArray::TextureArray(unsigned int width, unsigned int height, std::vector<Image*> images): width(width), height(height), images(images) {
-    // Create the texture array
+TextureArray::TextureArray(unsigned int width, unsigned int height, std::vector<Image*> images, unsigned int capacity): width(width), height(height), images(images) {
+    this->capacity = glm::max((unsigned int)images.size(), capacity);
     glGenTextures(1, &id);
-    bind();
-    // Uploads all the image data to the texture array
     generate();
 }
 
@@ -25,17 +24,11 @@ TextureArray::~TextureArray() {
 }
 
 /**
- * @brief Uploads all the image data from the image vector to this texture array
+ * @brief Generates the array and uploads all the image data from the image vector to this texture array
  * 
  */
 void TextureArray::generate() {
-    // Free up old array to avoid leak
-    if (glIsTexture(id)) {
-        glDeleteTextures(1, &id);
-    }
-
     // Generate new array
-    glGenTextures(1, &id);
     bind();
     
     // Set the filter to liear by default
@@ -43,26 +36,32 @@ void TextureArray::generate() {
     setWrap(GL_REPEAT);
     
     // Set up the array
-    glTexImage3D(GL_TEXTURE_2D_ARRAY, 0, GL_RGBA8, width, height, images.size(), 0, GL_RGBA, GL_UNSIGNED_BYTE, nullptr);
+    glTexImage3D(GL_TEXTURE_2D_ARRAY, 0, GL_RGBA8, width, height, capacity, 0, GL_RGBA, GL_UNSIGNED_BYTE, nullptr);
 
     // Upload the data for each image
     for (unsigned int i = 0; i < images.size(); i++) {
-
-        // Resize the image
-        unsigned char* data = new unsigned char[width * height * 4];
-        stbir_resize_uint8_linear(images.at(i)->getData(), images.at(i)->getWidth(), images.at(i)->getHeight(), 0, data, width, height, 0, STBIR_RGBA);
-
-        // Add the resized image data to the texture array
-        glTexSubImage3D(GL_TEXTURE_2D_ARRAY, 0, 0, 0, i, width, height, 1, GL_RGBA, GL_UNSIGNED_BYTE, data);
-
-        // Free the resized image data
-        delete[] data;
+        uploadImage(images.at(i), i);
     }
-
 }
 
 /**
- * @brief Adds a new image to the texture array. Note, this fully regenerates the array, so this could be slow with many images!
+ * @brief Uploads an image to the texture array. Assumes the given position slot is allocated
+ * 
+ */
+void TextureArray::uploadImage(Image* image, unsigned int position) {
+    // Resize the image
+    unsigned char* data = new unsigned char[width * height * 4];
+    stbir_resize_uint8_linear(image->getData(), image->getWidth(), image->getHeight(), 0, data, width, height, 0, STBIR_RGBA);
+
+    // Add the resized image data to the texture array
+    glTexSubImage3D(GL_TEXTURE_2D_ARRAY, 0, 0, 0, position, width, height, 1, GL_RGBA, GL_UNSIGNED_BYTE, data);
+
+    // Free the resized image data
+    delete[] data;
+}
+
+/**
+ * @brief Adds a new image to the texture array.
  * 
  * @param image Pointer to the image to add.
  * 
@@ -70,7 +69,15 @@ void TextureArray::generate() {
  */
 unsigned int TextureArray::add(Image* image) {
     images.push_back(image);
-    generate();
+    
+    if (images.size() > capacity) {
+        capacity *= 2;
+        generate();
+    }
+    else {
+        uploadImage(image, images.size() - 1);
+    }
+
     return images.size() - 1;
 }
 

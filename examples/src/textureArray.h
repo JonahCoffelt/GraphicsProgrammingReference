@@ -7,15 +7,17 @@
 class TextureArray {
     private:
         unsigned int id;
-
+        
+        unsigned int capacity;
         unsigned int width;
         unsigned int height;
         std::vector<Image*> images;
 
         void generate();
+        void uploadImage(Image* image, unsigned int position);
         
     public:
-        TextureArray(unsigned int width, unsigned int height, std::vector<Image*> images={});
+        TextureArray(unsigned int width, unsigned int height, std::vector<Image*> images={}, unsigned int capacity=0);
         ~TextureArray();
 
         void bind();
