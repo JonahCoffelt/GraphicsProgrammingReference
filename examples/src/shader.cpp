@@ -208,13 +208,28 @@ void Shader::use() {
  * @brief Binds a texture to the shader
  * 
  * @param name Name of the texture on the shader
- * @param texture ID of the texture to bind
+ * @param texture Pointer to the texture to bind
  * @param slot Slot to bind the texutre to [1-16]
  */
-void Shader::bind(const char* name, unsigned int texture, unsigned int slot) {
+void Shader::bind(const char* name, Texture* texture, unsigned int slot) {
+    use();
     glActiveTexture(GL_TEXTURE0 + slot);
-    glBindTexture(GL_TEXTURE_2D, texture);
+    glBindTexture(GL_TEXTURE_2D, texture->getID());
     setUniform(name, (int)slot);   
+}
+
+/**
+ * @brief Binds a texture arraY to the shader
+ * 
+ * @param name Name of the texture on the shader
+ * @param textureArray Pointer to the texture array to bind
+ * @param slot Slot to bind the texutre to [1-16]
+ */
+void Shader::bind(const char* name, TextureArray* textureArray, unsigned int slot) {
+    use();
+    glActiveTexture(GL_TEXTURE0 + slot);
+    glBindTexture(GL_TEXTURE_2D_ARRAY, textureArray->getID());
+    setUniform(name, (int)slot);
 }
 
 /**
@@ -234,6 +249,7 @@ int Shader::getUniformLocation(const char* name){
  * @param value Value to set the uniform
  */
 void Shader::setUniform(const char* name, float value) { 
+    use();
     glUniform1f(getUniformLocation(name), value); 
 }
 
@@ -254,6 +270,7 @@ void Shader::setUniform(const char* name, double value) {
  * @param value Value to set the uniform
  */
 void Shader::setUniform(const char* name, int value) { 
+    use();
     glUniform1i(getUniformLocation(name), value); 
 }
 
@@ -264,5 +281,6 @@ void Shader::setUniform(const char* name, int value) {
  * @param value Value to set the uniform
  */
 void Shader::setUniform(const char* name, glm::mat4 value) { 
+    use();
     glUniformMatrix4fv(getUniformLocation(name), 1, GL_FALSE, glm::value_ptr(value));  
 }

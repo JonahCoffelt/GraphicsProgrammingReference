@@ -8,7 +8,7 @@
  */
 Image::Image(std::string file) {
     stbi_set_flip_vertically_on_load(true);  
-    data = stbi_load(file.c_str(), &width, &height, &nChannels, 0); 
+    data = stbi_load(file.c_str(), &width, &height, &nChannels, 4); 
     if (!data) { std::cout << "Failed to load texture" << std::endl; }
 }
 

@@ -50,7 +50,7 @@ int main() {
     // Set the filter on the texture to linear
     texture->setFilter(GL_LINEAR, GL_LINEAR_MIPMAP_LINEAR);
     // Bind the texture to texture unit 0
-    texture->use(shader, "texture1", 0);
+    shader->bind("texture1", texture, 0);
 
     // Main loop continues as long as the window is open
     while (window->isRunning()) {

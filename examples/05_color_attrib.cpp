@@ -22,7 +22,7 @@ int main() {
         -0.5f, -0.5f, 0.0f,   1.0, 0.0, 0.0,
          0.5f, -0.5f, 0.0f,   0.0, 1.0, 0.0,
          0.0f,  0.5f, 0.0f,   0.0, 0.0, 1.0,
-    };  
+    };
     
     // Load shader from file
     Shader* shader = new Shader("shaders/05_color_attrib.vert", "shaders/05_color_attrib.frag");

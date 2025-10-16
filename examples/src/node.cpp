@@ -29,7 +29,7 @@ void Node::update() {
 
 
 void Node::render() {
-    texture->use(shader, "uTexture", 0);
+    shader->bind("uTexture", texture, 0);
     shader->setUniform("model", modelMatrix.getMatrix());
     vao->render();
 }

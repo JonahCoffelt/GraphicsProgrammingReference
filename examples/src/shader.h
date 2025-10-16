@@ -2,6 +2,8 @@
 #define SHADER_H
 
 #include "includes.h"
+#include "texture.h"
+#include "textureArray.h"
 
 // GLint location, GLint count, unsigned int dataType, unsigned int stride, unsigned int offset
 struct Attribute {
@@ -26,7 +28,8 @@ class Shader {
 
         void use();
 
-        void bind(const char* name, unsigned int texture, unsigned int slot);
+        void bind(const char* name, Texture* texture, unsigned int slot);
+        void bind(const char* name, TextureArray* textureArray, unsigned int slot);
 
         int getUniformLocation(const char* name);
         unsigned int getStride() { return stride; }
