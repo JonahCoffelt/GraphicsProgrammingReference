@@ -98,6 +98,11 @@ Window::Window(int width, int height, const char* title) {
     // Set the resize callback
     glViewport(0, 0, width, height);
     glfwSetFramebufferSizeCallback(window, windowResize);
+
+    // Fix mac
+    int fbWidth, fbHeight;
+    glfwGetFramebufferSize(window, &fbWidth, &fbHeight);
+    glViewport(0, 0, fbWidth, fbHeight);
 }
 
 /**

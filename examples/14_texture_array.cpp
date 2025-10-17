@@ -1,7 +1,7 @@
 /**
- * @file 13_instance.cpp
+ * @file 14_texture_array.cpp
  * @author Jonah Coffelt
- * @brief Shows how to use the VAO class to do instanced rendering
+ * @brief Shows how to create, add to, and render with a texture array 
  * @version 0.1
  * @date 2025-10-14
  * 
@@ -27,7 +27,7 @@
 int main() {
     // Create a GLFW window
     Window* window = new Window(800, 800, "Example 14: Texture Array");
-    glEnable(GL_CULL_FACE);  // For preformance
+    glEnable(GL_CULL_FACE); 
     
     // Create a key object for keyboard inputs
     Keyboard* keys = new Keyboard(window);
@@ -47,7 +47,7 @@ int main() {
     Image* wall = new Image("textures/wall.jpg");
 
     // Create a texture array from images
-    TextureArray* textureArray = new TextureArray(512, 512, {container});
+    TextureArray* textureArray = new TextureArray(2048, 2048, {container});
     int wallIndex = textureArray->add(wall);
     shader->bind("textureArray", textureArray, 0);
 
